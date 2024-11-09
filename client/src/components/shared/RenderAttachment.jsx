@@ -6,7 +6,6 @@ const RenderAttachment = (file, url) => {
   switch (file) {
     case "video":
       return <video src={url} preload="none" width={"200px"} controls />;
-      break;
 
     case "image":
       return (
@@ -20,11 +19,9 @@ const RenderAttachment = (file, url) => {
           }}
         />
       );
-      break;
 
     case "audio":
       return <audio src={url} preload="none" controls />;
-      break;
 
     default:
       return <FileOpenIcon />;
