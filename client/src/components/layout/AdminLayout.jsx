@@ -18,7 +18,7 @@ import {
   Message as MessageIcon,
 } from "@mui/icons-material";
 import { grayColor, matBlack } from "../../constants/color";
-import { useLocation, Link as LinkComponent } from "react-router-dom";
+import { useLocation, Link as LinkComponent, Navigate } from "react-router-dom";
 
 const Link = styled(LinkComponent)`
   text-decoration: none;
@@ -38,12 +38,12 @@ const adminTabs = [
   },
   {
     name: "Users",
-    path: "/admin/users-management",
+    path: "/admin/users",
     icon: <ManageAccountsIcon />,
   },
   {
     name: "Chats",
-    path: "/admin/chats-management",
+    path: "/admin/chats",
     icon: <GroupsIcon />,
   },
   {
@@ -95,12 +95,15 @@ const Sidebar = ({ w = "100%" }) => {
   );
 };
 
+const isAdmin = true;
+
 const AdminLayout = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const handleMobile = () => setIsMobile(!isMobile);
   const handleClose = () => setIsMobile(false);
 
+  if (!isAdmin) return <Navigate to="/admin" />;
   return (
     <Grid container minHeight={"100vh"}>
       <Box
