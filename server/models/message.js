@@ -1,6 +1,6 @@
-import { Schema, Types, model, models } from "mongoose";
+import mongoose from "mongoose";
 
-const schema = new Schema(
+const schema = new mongoose.Schema(
   {
     content: String,
     attachments: [
@@ -16,12 +16,12 @@ const schema = new Schema(
       },
     ],
     sender: {
-      type: Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "User",
       requried: true,
     },
     chat: {
-      type: Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "Chat",
       requried: true,
     },
@@ -31,4 +31,5 @@ const schema = new Schema(
   }
 );
 
-export const Message = models.Message || model("Message", schema);
+export const Message =
+  mongoose.models.Message || mongoose.model("Message", schema);

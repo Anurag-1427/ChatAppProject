@@ -1,6 +1,6 @@
-import { Schema, model, models } from "mongoose";
+import mongoose from "mongoose";
 
-const schema = new Schema(
+const schema = new mongoose.Schema(
   {
     status: {
       type: String,
@@ -9,12 +9,12 @@ const schema = new Schema(
     },
 
     sender: {
-      type: Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "User",
       requried: true,
     },
     receiver: {
-      type: Types.ObjectId,
+      type: mongoose.Types.ObjectId,
       ref: "User",
       requried: true,
     },
@@ -24,4 +24,5 @@ const schema = new Schema(
   }
 );
 
-export const Request = models.Request || model("Request", schema);
+export const Request =
+  mongoose.models.Request || mongoose.model("Request", schema);
