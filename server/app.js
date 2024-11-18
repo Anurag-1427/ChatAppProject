@@ -6,6 +6,11 @@ import cookieParser from "cookie-parser";
 
 import userRoute from "./routes/user.js";
 import chatRoute from "./routes/chat.js";
+// import {
+//   createGroupChats,
+//   createMessageInChat,
+//   createSingleChats,
+// } from "./seeders/chat.js";
 // import { createUser } from "./seeders/user.js";
 
 dotenv.config({ path: "./.env" });
@@ -15,6 +20,9 @@ const PORT = process.env.PORT || 3000;
 
 connectDB(mongoURI);
 // createUser(10);
+// createSingleChats(10);
+// createGroupChats(10);
+// createMessageInChat("673b559fd690c53fdda41f36", 50);
 
 const app = express();
 
